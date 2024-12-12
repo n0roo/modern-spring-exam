@@ -18,3 +18,4 @@ include("service:sample-api")  // 인증 서버
 
 include("api-gateway")          // 게이트 웨이 서버
 include("api-discovery")        // eureka discovery register
+include("vault-server")        // vault server
