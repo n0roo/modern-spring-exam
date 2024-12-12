@@ -12,6 +12,7 @@ include("components:mail-sender")   // SMTP email Sender
 include("domain:common-cached")
 include("domain:authenticate-entities") // authenticate 는 사용자의 인증만을 담당하므로, 인증만을 위한 entity 를 제어한다.
 include("domain:samples-entities")   // sample entity
+include("domain:samples-documents")   // sample documents
 
 include("service:authenticate-api")  // 인증 서버
 include("service:sample-api")  // 인증 서버
