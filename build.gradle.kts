@@ -18,6 +18,15 @@ allOpen {
     annotation("javax.persistence.Entity")
 }
 
+allprojects {
+    repositories {
+        mavenCentral()
+        maven {
+            setUrl("https://jitpack.io")
+        }
+    }
+}
+
 subprojects {
     apply(plugin = "kotlin")
     apply(plugin = "org.springframework.boot")
@@ -31,12 +40,6 @@ subprojects {
 
     extra["snippetsDir"] = file("build/generated-snippets")
     extra["springCloudVersion"] = "2024.0.0"
-
-    java {
-        toolchain {
-            languageVersion = JavaLanguageVersion.of(21)
-        }
-    }
 
     configurations {
         compileOnly {
