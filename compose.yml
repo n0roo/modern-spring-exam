@@ -1,0 +1,25 @@
+version: '3.9'
+
+services:
+  redis:
+    image: 'redis:latest'
+    restart: always
+    ports:
+      - 6379:6379
+  postgres:
+    image: 'postgres:latest'
+    restart: always
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_PASSWORD: localhost_dev
+    volumes:
+      - ".docker/init/:/docker-entrypoint-initdb.d/"
+  mongodb:
+    image: 'mongo:latest'
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: localhost_dev
+      MONGO_INITDB_ROOT_PASSWORD: localhost_dev_pwd
+    ports:
+      - 27017:27017
