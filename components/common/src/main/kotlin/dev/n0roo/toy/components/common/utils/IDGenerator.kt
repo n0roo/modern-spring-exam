@@ -1,8 +1,6 @@
 package dev.n0roo.toy.components.common.utils
 
 import com.fasterxml.uuid.Generators
-import java.time.ZonedDateTime
-import java.time.format.DateTimeFormatter
 import java.util.*
 
 class IDGenerator {
@@ -33,11 +31,6 @@ class IDGenerator {
             return (1..fillIndex).map { kotlin.random.Random.nextInt(0, charPool.size) }
                 .map(charPool::get)
                 .joinToString("")
-        }
-
-        fun format(format: String, date: ZonedDateTime): String {
-            val patter = DateTimeFormatter.ofPattern(format)
-            return patter.format(date)
         }
     }
 }
