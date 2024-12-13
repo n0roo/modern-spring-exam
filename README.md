@@ -64,3 +64,8 @@
   - 때문에 프로젝트 구성을 DDD 방식보다 CQRS 나 컴퓨팅파워의 소모도가 비슷한 서비스단위로 묶는게 비용최적화에서 이로운 편이라고 주장.
   - 실제로 MSA 구성시 `Gateway` 는 Webflux 로, 기타 서비스들은 CQRS 로, IO 나 Remote Server(3rd) 로 인한 지연이 있는 경우 Go 를 사용해서 동시성 제어를 함으로, 성능과 비용 이득을 많이 봤음.
   - FeignClient 사용의 권장. gRPC 와 rSocket 등의 직렬화 라이브러리를 연계할 경우, AutoScale 구성이 까다로와짐. k8 쪽에서는 크게 문제가 없다하지만, k8 을 안써서;;
+
+---
+Update Logs
+
+- 작업중. 
