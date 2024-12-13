@@ -6,6 +6,12 @@ class AppTypes {
         enum class TraceCases { INFO, WARNING, CRITICAL, NON_HANDLED }
     }
 
+    object Common {
+        enum class PlatformType {
+            IOS, AND, WEB, PWA_APP, ETC
+        }
+    }
+
     object Service {
         enum class Resources {
             SYSTEM

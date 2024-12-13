@@ -6,6 +6,12 @@ object AppConsts {
         const val BasePackage = "dev.n0roo.toy"
     }
 
+    object Authenticate {
+        object Prefixed {
+            const val FillCharSize = 5
+        }
+    }
+
     object Delimiter {
         const val Comma = ","
         const val Colon = ":"
@@ -13,6 +19,7 @@ object AppConsts {
         const val Asterisk = "*"
         const val Blank = ""
         const val Dash = "-"
+        const val UnderScore = "_"
         const val PadBar = " | "
         const val Dot = "."
         const val IsVal = "="
