@@ -1,0 +1,15 @@
+server:
+  servlet:
+    context-path: /auth
+  port: 8090
+spring:
+  application:
+    name: authenticate
+  profiles:
+    include:
+      - auth-entity-dev
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 50MB
+      location: ${java.io.tmpdir}

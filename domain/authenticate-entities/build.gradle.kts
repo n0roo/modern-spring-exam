@@ -10,13 +10,8 @@ extra["postgreSqlVersion"] = postgreSqlVersion
 extra["liquibaseCoreVersion"] = liquibaseCoreVersion
 
 dependencies {
-    apply(plugin = "org.liquibase.gradle")
-    apply(plugin = "org.jooq.jooq-codegen-gradle")
-
     implementation(project(":components:common"))
-//    implementation("org.springframework.boot:spring-boot-starter-data-jpa")
-    implementation("org.springframework.boot:spring-boot-starter-data-r2dbc")
-    runtimeOnly("org.postgresql:r2dbc-postgresql")
+    implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     implementation("org.springframework.boot:spring-boot-starter-jooq")
 
     // liquibase 형상관리

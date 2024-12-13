@@ -1,7 +1,7 @@
 spring:
   config:
     activate:
-      on-profile: auth-rds-dev
+      on-profile: auth-entity-dev
   datasource:
     url: jdbc:postgresql://localhost:5432/common_auth
     username: rdb_dev
@@ -21,3 +21,5 @@ spring:
   liquibase:
     change-log: config/liquibase/changelog-master.yml
     driver-class-name: org.postgresql.Driver
+  jooq:
+    sql-dialect: postgres
