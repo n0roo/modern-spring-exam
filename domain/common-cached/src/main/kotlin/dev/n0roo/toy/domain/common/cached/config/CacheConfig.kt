@@ -1,5 +1,7 @@
 package dev.n0roo.toy.domain.common.cached.config
 
+import com.fasterxml.jackson.databind.ObjectMapper
+import dev.n0roo.toy.domain.common.cached.config.codec.JsonCodec
 import dev.n0roo.toy.domain.common.cached.config.properties.CacheProperties
 import io.lettuce.core.ReadFrom
 import io.lettuce.core.cluster.ClusterClientOptions
@@ -59,5 +61,8 @@ constructor(
             contextBuilder.value(serializer).hashValue(serializer).hashKey(serializer).build()
         )
     }
+
+    @Bean
+    fun jsonCodec(): JsonCodec = JsonCodec(ObjectMapper())
 
 }

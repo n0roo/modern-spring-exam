@@ -1,4 +1,6 @@
 dependencies {
+    implementation(project(":components:common"))
+    implementation("com.fasterxml.jackson.core:jackson-databind:2.18.2")
     implementation("org.springframework.boot:spring-boot-starter-data-redis-reactive")
 }
 val jar: Jar by tasks
