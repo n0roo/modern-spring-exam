@@ -21,8 +21,6 @@ class DeviceManagedService constructor(
         platformType: AppTypes.Common.PlatformType,
         notificationUID: String? = null,
         appVersion: String,
-        gpsAllowed: Boolean? = null,
-        healthAllowed: Boolean? = null,
     ): Devices {
         return devicesRepository.save(
             Devices().apply {
@@ -35,8 +33,6 @@ class DeviceManagedService constructor(
                 )
                 notificationUID?.let { this.notificationUID = it }
                 this.appVersion = appVersion
-                this.gpsAllowed = gpsAllowed?: false
-                this.healthAllowed = healthAllowed?: false
             }
         )
     }
@@ -45,15 +41,11 @@ class DeviceManagedService constructor(
         registrationId: String,
         notificationUID: String? = null,
         appVersion: String,
-        gpsAllowed: Boolean? = null,
-        healthAllowed: Boolean? = null,
     ): Devices {
         fetchDeviceWithRegistrationId(registrationId)?.let { devices ->
             devices.appVersion = appVersion
             devices.activated = true
             notificationUID?.let { devices.notificationUID = it }
-            gpsAllowed?.let { devices.gpsAllowed = it }
-            healthAllowed?.let { devices.healthAllowed = it }
             devices.issuedAt = ZonedDateTime.now()
             return devicesRepository.save(devices)
         }

@@ -20,6 +20,7 @@ dependencies {
     implementation("org.liquibase:liquibase-core:${property("liquibaseCoreVersion")}")
 
     jooqCodegen("org.postgresql:postgresql:${property("postgreSqlVersion")}")
+
 }
 
 val jar: Jar by tasks

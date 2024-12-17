@@ -51,14 +51,6 @@ class Devices {
     @get:Comment(value = "다중계정 접속 여부")
     var multipleConnected: Boolean = false
 
-    @get:Column(name = "gps_allowed", nullable = false)
-    @get:Comment(value = "gps 사용 허용여부")
-    var gpsAllowed: Boolean = false
-
-    @get:Column(name = "health_allowed", nullable = false)
-    @get:Comment(value = "걸음수추적 사용 허용여부")
-    var healthAllowed: Boolean = false
-
     @get:Column(name = "created_at", nullable = false)
     @get:Comment(value = "생성일")
     var createdAt: ZonedDateTime = ZonedDateTime.now()

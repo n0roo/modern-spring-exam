@@ -92,6 +92,7 @@ subprojects {
 
     tasks.test {
         outputs.dir(project.extra["snippetsDir"]!!)
+        jvmArgs("-Xshare:off")
     }
 
     tasks.asciidoctor {
