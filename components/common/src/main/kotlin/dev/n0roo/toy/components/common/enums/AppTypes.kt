@@ -1,6 +1,6 @@
 package dev.n0roo.toy.components.common.enums
 
-class AppTypes {
+object AppTypes {
 
     object Log {
         enum class TraceCases { INFO, WARNING, CRITICAL, NON_HANDLED }
