@@ -1,6 +1,8 @@
 package dev.n0roo.toy.domain.common.cached.components
 
 import dev.n0roo.toy.domain.common.cached.config.codec.JsonCodec
+import kotlinx.coroutines.reactor.awaitSingle
+import kotlinx.coroutines.reactor.awaitSingleOrNull
 import org.springframework.data.redis.core.ReactiveRedisOperations
 import org.springframework.stereotype.Component
 import reactor.core.publisher.Mono
@@ -14,23 +16,25 @@ constructor(
     private val jsonCodec: JsonCodec
 ){
 
-    fun <T : Any> getValue(key: String, clazz: KClass<T>): Mono<T> {
+    suspend fun <T : Any> getValue(key: String, clazz: KClass<T>): T? {
         return reactiveRedisOperations.opsForValue()
             .get(key)
             .map { jsonCodec.decode(it, clazz) }
             .switchIfEmpty(Mono.empty())
+            .awaitSingleOrNull()
     }
 
-    fun <T: Any> setValue(key: String, source: T): Mono<T> {
+    suspend fun <T: Any> setValue(key: String, source: T): T {
         return reactiveRedisOperations.opsForValue()
             .set(key, jsonCodec.encode(source))
-            .map { source }
+            .map { source }.awaitSingle()
     }
 
-    fun <T: Any> expiredValue(key: String, clazz: KClass<T>): Mono<T> {
+    suspend fun <T: Any> expiredValue(key: String, clazz: KClass<T>): T? {
         return reactiveRedisOperations.opsForValue()
             .getAndExpire(key, Duration.ZERO)
             .map { jsonCodec.decode(it, clazz) }
             .switchIfEmpty(Mono.empty())
+            .awaitSingleOrNull()
     }
 }
