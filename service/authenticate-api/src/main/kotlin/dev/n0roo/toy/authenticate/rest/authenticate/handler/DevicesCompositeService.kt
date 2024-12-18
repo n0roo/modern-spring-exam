@@ -4,10 +4,10 @@ import dev.n0roo.toy.domain.common.cached.devices.models.DeviceInformation
 import dev.n0roo.toy.domain.common.cached.devices.services.DevicesCacheManageService
 import dev.n0roo.toy.authenticate.rest.authenticate.dto.DevicesDto
 import dev.n0roo.toy.domain.authenticate.services.DevicesManageService
-import org.springframework.stereotype.Component
+import org.springframework.stereotype.Service
 
-@Component
-class DevicesCompositeHandler
+@Service
+class DevicesCompositeService
 constructor(
     private val deviceManagedService: DevicesManageService,
     private val devicesCacheManageService: DevicesCacheManageService
