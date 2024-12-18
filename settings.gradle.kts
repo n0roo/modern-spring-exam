@@ -14,6 +14,7 @@ include(
 
     "domain:common-cached",
     "domain:authenticate-entities", // authenticate 는 사용자의 인증만을 담당하므로, 인증만을 위한 entity 를 제어한다.
+    "domain:authenticate-entities-r2", // authenticate 는 사용자의 인증만을 담당하므로, 인증만을 위한 entity 를 제어한다.
     "domain:samples-entities", // sample entity
     "domain:samples-documents", // sample documents
 

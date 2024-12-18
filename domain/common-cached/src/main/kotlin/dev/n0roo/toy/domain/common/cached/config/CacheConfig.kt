@@ -26,7 +26,7 @@ constructor(
     private val cacheProperties: CacheProperties,
 ){
 
-    @Profile("prod")
+    @Profile("prod", "common-cache-prod")
     @Bean
     fun reactiveRedisClusterConnectionFactory(): ReactiveRedisConnectionFactory {
         val clusterConfiguration = RedisClusterConfiguration()
@@ -45,7 +45,7 @@ constructor(
         return LettuceConnectionFactory(clusterConfiguration, clientConfiguration)
     }
 
-    @Profile("dev")
+    @Profile("dev", "common-cache-dev")
     @Bean
     fun reactiveRedisConnectionFactory(): ReactiveRedisConnectionFactory {
         return LettuceConnectionFactory(cacheProperties.host, cacheProperties.port)

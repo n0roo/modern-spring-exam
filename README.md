@@ -27,6 +27,7 @@
 - r2dbc 에 대해서..
   - 아직 Spring 에서 r2dbc 가 성숙하지 않았다고 보임.
   - 때문에 성숙도가 높은 JPA 와 Jooq 가 메인
+  - 20241218 내용 추가. 실제 authenticate-entities 도메인 모듈의 경우 복잡도가 낮고, 성능이 우선되어서, 단순 CRUD 를 체크해본결과 `Webflux + r2dbc` 와 `Web + JPA` 와의 속도가 유의미한 수준의 차이가 있어 변경.
 - why jooq?
   - QueryDSL에서 구현한 JPQL 이미 성숙한 상태. 때문에 해당 라이브러리의 업데이트가 진행 되지 않는 부분에 대해서는 문제삼고 싶지 않음.
   - RDBMS 를 다루는 표준은 SQL이고, JPQL은 방언. 때문에 SQL 친화적인 Jooq를 선택.

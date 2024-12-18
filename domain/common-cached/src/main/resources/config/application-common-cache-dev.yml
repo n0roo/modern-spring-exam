@@ -4,13 +4,5 @@ spring:
       on-profile: common-cache-dev
   data:
     redis:
-      cluster:
-        nodes: redis://localhost:6379
-        max-redirects: 3
-      connect-timeout: 15
-      lettuce:
-        pool:
-          enabled: true
-          max-active: 8
       host: localhost
       port: 6379

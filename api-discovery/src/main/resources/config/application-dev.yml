@@ -1,0 +1,31 @@
+server:
+  port: 9000
+
+spring:
+  config:
+    activate:
+      on-profile: dev
+  application:
+    name: gateway-service
+  cloud:
+    gateway:
+      routes:
+        - id: authenticate
+          uri: lb://AUTHENTICATE
+      default-filters:
+        - name: GlobalAccessFilter
+          args:
+            prefixDelimiter: gateway[>inbound]
+            logger: true
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, info, metrics, prometheus, gateway
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka

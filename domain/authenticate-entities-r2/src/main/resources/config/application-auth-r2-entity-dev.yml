@@ -1,0 +1,23 @@
+spring:
+  config:
+    activate:
+      on-profile: auth-r2-entity-dev
+  datasource:
+    url: jdbc:postgresql://localhost:5432/common_auth
+    username: rdb_dev
+    password: rdb_dev
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      jdbc-url: jdbc:postgresql://localhost:5432/common_auth
+  r2dbc:
+    url: r2dbc:postgresql://localhost:5432/common_auth
+    username: rdb_dev
+    password: rdb_dev
+  liquibase:
+    change-log: config/liquibase/changelog-master.yml
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/common_auth
+    user: rdb_dev
+    password: rdb_dev
+  jooq:
+    sql-dialect: postgres

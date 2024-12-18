@@ -1,19 +1,19 @@
-package dev.n0roo.toy.service.authenticate.rest.authenticate.services
+package dev.n0roo.toy.authenticate.rest.authenticate.handler
 
-import dev.n0roo.toy.domain.authenticate.services.DeviceManagedService
 import dev.n0roo.toy.domain.common.cached.devices.models.DeviceInformation
 import dev.n0roo.toy.domain.common.cached.devices.services.DevicesCacheManageService
-import dev.n0roo.toy.service.authenticate.rest.authenticate.dto.DevicesDto
-import org.springframework.stereotype.Service
+import dev.n0roo.toy.authenticate.rest.authenticate.dto.DevicesDto
+import dev.n0roo.toy.domain.authenticate.services.DevicesManageService
+import org.springframework.stereotype.Component
 
-@Service
-class DevicesCompositeService
+@Component
+class DevicesCompositeHandler
 constructor(
-    private val deviceManagedService: DeviceManagedService,
+    private val deviceManagedService: DevicesManageService,
     private val devicesCacheManageService: DevicesCacheManageService
 ){
 
-    fun registrationDevices(appVersion: String, params: DevicesDto.RegistrationRequest): DevicesDto.CommandResponse {
+    suspend fun registrationDevices(appVersion: String, params: DevicesDto.RegistrationRequest): DevicesDto.CommandResponse {
         val storedDevice = deviceManagedService.registeredDevice(
             appVersion = appVersion,
             sourceDeviceId = params.deviceUUID,

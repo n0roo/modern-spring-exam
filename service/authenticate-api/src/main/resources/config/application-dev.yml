@@ -7,7 +7,9 @@ spring:
     name: authenticate
   profiles:
     include:
-      - auth-entity-dev
+#      - auth-entity-dev
+      - auth-r2-entity-dev
+      - common-cache-dev
   servlet:
     multipart:
       max-file-size: 10MB

@@ -1,4 +1,4 @@
-package dev.n0roo.toy.service.authenticate.rest.authenticate.dto
+package dev.n0roo.toy.authenticate.rest.authenticate.dto
 
 import com.fasterxml.jackson.annotation.JsonInclude
 import dev.n0roo.toy.components.common.constants.ValidMessages
