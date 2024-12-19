@@ -1,6 +1,7 @@
 package dev.n0roo.toy.domain.common.cached.components
 
 import dev.n0roo.toy.domain.common.cached.config.codec.JsonCodec
+import dev.n0roo.toy.domain.common.cached.config.codec.TypeReference
 import kotlinx.coroutines.reactor.awaitSingle
 import kotlinx.coroutines.reactor.awaitSingleOrNull
 import org.springframework.data.redis.core.ReactiveRedisOperations
@@ -37,4 +38,6 @@ constructor(
             .switchIfEmpty(Mono.empty())
             .awaitSingleOrNull()
     }
+
+
 }

@@ -17,6 +17,7 @@ class RouterConfig {
         "/auth".nest {
             accept(MediaType.APPLICATION_JSON).nest {
                 "/v1/devices".nest {
+                    GET("/{registrationId}", deviceManageHandler::fetchDevices)
                     POST("", deviceManageHandler::registrationDevices)
                 }
             }

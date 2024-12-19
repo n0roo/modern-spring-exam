@@ -1,5 +1,6 @@
 package dev.n0roo.toy.domain.common.cached.devices.services
 
+import dev.n0roo.toy.components.common.constants.AppConsts
 import dev.n0roo.toy.domain.common.cached.components.CacheGenericOperator
 import dev.n0roo.toy.domain.common.cached.devices.models.DeviceInformation
 import org.springframework.stereotype.Service
@@ -11,14 +12,14 @@ constructor(
 ){
 
     suspend fun storedDevices(devices: DeviceInformation): DeviceInformation {
-        return cacheGenericOperator.setValue(devices.registrationId, devices)
+        return cacheGenericOperator.setValue(AppConsts.Prefixed.Cache.RegistrationId.plus(devices.registrationId), devices)
     }
 
     suspend fun fetchDevices(registrationId: String): DeviceInformation? {
-        return cacheGenericOperator.getValue(registrationId, DeviceInformation::class)
+        return cacheGenericOperator.getValue(AppConsts.Prefixed.Cache.RegistrationId.plus(registrationId), DeviceInformation::class)
     }
 
     suspend fun expiredDevices(registrationId: String): DeviceInformation? {
-        return cacheGenericOperator.expiredValue(registrationId, DeviceInformation::class)
+        return cacheGenericOperator.expiredValue(AppConsts.Prefixed.Cache.RegistrationId.plus(registrationId), DeviceInformation::class)
     }
 }

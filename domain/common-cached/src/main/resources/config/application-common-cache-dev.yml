@@ -6,11 +6,5 @@ spring:
     redis:
       host: localhost
       port: 6379
-logging:
-  level:
-    org.springframework.data.*.*: trace
-    org.springframework.cache.*: trace
-    root: INFO
-    redis.clients: TRACE
-    org.springframework.data: TRACE
+
 

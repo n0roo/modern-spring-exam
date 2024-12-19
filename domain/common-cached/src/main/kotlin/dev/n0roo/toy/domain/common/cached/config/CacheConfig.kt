@@ -1,6 +1,5 @@
 package dev.n0roo.toy.domain.common.cached.config
 
-import com.fasterxml.jackson.databind.ObjectMapper
 import dev.n0roo.toy.domain.common.cached.config.codec.JsonCodec
 import dev.n0roo.toy.domain.common.cached.config.properties.CacheProperties
 import io.lettuce.core.ReadFrom
@@ -20,7 +19,7 @@ import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer
 import org.springframework.data.redis.serializer.RedisSerializationContext
 import org.springframework.data.redis.serializer.StringRedisSerializer
 import java.time.Duration
-
+import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 @Configuration
 class CacheConfig
 constructor(
@@ -70,6 +69,8 @@ constructor(
     }
 
     @Bean
-    fun jsonCodec(): JsonCodec = JsonCodec(ObjectMapper())
+    fun jsonCodec(): JsonCodec {
+        return JsonCodec(jacksonObjectMapper())
+    }
 
 }

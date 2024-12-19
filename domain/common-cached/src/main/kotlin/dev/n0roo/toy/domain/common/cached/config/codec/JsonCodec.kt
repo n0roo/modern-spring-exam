@@ -18,7 +18,9 @@ class JsonCodec (
     }
 
     override fun <T : Any> decode(data: String, type: KClass<T>): T {
-        return runCatching { objectMapper.readValue(data, type.java) }
+        return runCatching {
+            objectMapper.readValue(data, type.java)
+        }
             .getOrElse {
                 throw ErrorMsgTypes.JsonCodec.CanNotDecode.throws.apply {
                     this.message = "Cannot decode \"${data}\" to \"${String::class}\""

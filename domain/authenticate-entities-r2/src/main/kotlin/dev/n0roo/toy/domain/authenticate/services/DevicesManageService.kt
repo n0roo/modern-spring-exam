@@ -6,6 +6,7 @@ import dev.n0roo.toy.components.common.exceptions.codes.ErrorMsgTypes
 import dev.n0roo.toy.components.common.utils.IDGenerator
 import dev.n0roo.toy.domain.authenticate.entities.Devices
 import dev.n0roo.toy.domain.authenticate.repository.DevicesRepository
+import kotlinx.coroutines.reactive.awaitFirst
 import org.springframework.stereotype.Service
 import java.time.ZonedDateTime
 import kotlin.jvm.optionals.getOrNull
@@ -62,7 +63,7 @@ constructor(
         throw ErrorMsgTypes.NotFound.RegistrationId.throws
     }
 
-    fun fetchDeviceWithRegistrationId(registrationId: String): Devices? {
-        return devicesRepository.findByRegistrationId(registrationId).getOrNull()
+    suspend fun fetchDeviceWithRegistrationId(registrationId: String): Devices? {
+        return devicesRepository.findTopByRegistrationIdAndActivated(registrationId, true)
     }
 }

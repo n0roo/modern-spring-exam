@@ -40,6 +40,10 @@ object AppConsts {
         const val ErrorMessage = "errorMessages"
         const val Elapsed = "elapsed"
         const val Unknown = "unknown"
+
+        object Cache {
+            const val RegistrationId = "reg:"
+        }
     }
 
     object HttpHeaders {
