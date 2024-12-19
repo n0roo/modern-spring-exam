@@ -11,7 +11,7 @@
 - spring Rest Doc
 - spring JPA
 - spring Jooq
-- spring Valut
+- spring Vault
 - jooq Gradle CodeGen
 - aws sdk 2.x
 - postgreSQL 

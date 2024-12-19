@@ -17,6 +17,7 @@ object ErrorMsgTypes {
     enum class Conflict(val throws: ConflictExceptions) {
         AlreadyUsedKeyAndResourceType(ConflictExceptions(4090, "Already Used Key Or Approval Resources")),
         AlreadyUsedResourceType(ConflictExceptions(4091, "Already Used Signing Method")),
+        AlreadyUsedEmailAddress(ConflictExceptions(4092, "Already Used Email Address")),
         ;
 
     }

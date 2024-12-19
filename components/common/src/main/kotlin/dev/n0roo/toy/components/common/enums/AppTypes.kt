@@ -10,6 +10,10 @@ object AppTypes {
         enum class PlatformType {
             IOS, AND, WEB, PWA_APP, ETC
         }
+
+        enum class Exists {
+            EXISTS, NOT_EXISTS
+        }
     }
 
     object Service {
@@ -44,6 +48,12 @@ object AppTypes {
             ANONYMOUS,
             USER,
             ADMIN,
+        }
+    }
+
+    object Users {
+        enum class Status {
+            ON, OK, BLOCK, LEAVE
         }
     }
 }

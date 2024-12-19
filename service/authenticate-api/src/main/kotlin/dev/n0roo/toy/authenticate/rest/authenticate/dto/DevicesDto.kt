@@ -17,7 +17,7 @@ object DevicesDto {
         @field:NotNull(value = "platformType ${ValidMessages.IS_REQUIRED}")
         val platformType: AppTypes.Common.PlatformType,
         val notificationUID: String? = null,
-        @field:Max(10, message = "Device ID must be greater than or equal to 1")
+        @field:Max(10, message = "Device ID must be less than or equal to 10")
         val testInt: Int = 1
     )
 

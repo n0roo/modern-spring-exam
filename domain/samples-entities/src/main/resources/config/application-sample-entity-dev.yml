@@ -1,0 +1,25 @@
+spring:
+  config:
+    activate:
+      on-profile: sample-entity-dev
+  datasource:
+    url: jdbc:postgresql://localhost:5432/common_sample
+    username: rdb_dev
+    password: rdb_dev
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      jdbc-url: jdbc:postgresql://localhost:5432/common_sample
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        use_sql_comments: true
+        show_sql: false
+    show-sql: false
+    hibernate:
+      ddl-auto: validate
+  liquibase:
+    change-log: config/liquibase/changelog-master.yml
+    driver-class-name: org.postgresql.Driver
+  jooq:
+    sql-dialect: postgres
