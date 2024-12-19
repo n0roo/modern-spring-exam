@@ -69,6 +69,26 @@
   - FeignClient 사용의 권장. gRPC 와 rSocket 등의 직렬화 라이브러리를 연계할 경우, AutoScale 구성이 까다로와짐. k8 쪽에서는 크게 문제가 없다하지만, k8 을 안써서;;
 
 ---
+
+## Summary
+```text
+├── api-discovery
+├── api-gateway
+├── components
+│   ├── common
+│   ├── excel-handler
+│   └── mail-sender
+├── domain
+│   ├── authenticate-entities               <-- authenticate with jpa
+│   ├── authenticate-entities-r2            <-- authenticate with r2dbc
+│   ├── common-cached                       <-- spring redis reactive
+│   ├── samples-documents
+│   └── samples-entities
+│── gradle
+│── service
+    ├── authenticate-api                          <-- webflux api
+```
+
 Update Logs
 
 - 작업중. 
