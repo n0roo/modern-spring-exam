@@ -9,6 +9,7 @@ object AppConsts {
     object Authenticate {
         object Prefixed {
             const val FillCharSize = 5
+            const val TokenPrefix = "Bearer "
         }
     }
 
@@ -43,6 +44,7 @@ object AppConsts {
 
         object Cache {
             const val RegistrationId = "reg:"
+            const val Authorization = "auth:"
         }
     }
 

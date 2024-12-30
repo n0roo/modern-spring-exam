@@ -1,0 +1,37 @@
+server:
+  port: 9000
+
+spring:
+  application:
+    name: gateway
+  profiles:
+    include:
+      - common-cache-dev
+  cloud:
+    gateway:
+      routes:
+        - id: authenticate
+          uri: lb://AUTHENTICATE
+          predicates:
+            - Path=/auth/**, /auth/v1/**
+        - id: msg-broker-service
+          uri: lb://MSG-BROKER-SERVICE
+          predicates:
+            - Path=/msg/**
+      default-filters:
+        - name: GlobalAccessFilter
+          args:
+            prefixDelimiter: gateway[>inbound]
+            logger: true
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, info, metrics, prometheus, gateway
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka

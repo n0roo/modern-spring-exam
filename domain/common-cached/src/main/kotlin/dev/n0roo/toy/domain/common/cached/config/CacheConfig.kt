@@ -20,13 +20,15 @@ import org.springframework.data.redis.serializer.RedisSerializationContext
 import org.springframework.data.redis.serializer.StringRedisSerializer
 import java.time.Duration
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
+import org.springframework.context.annotation.Primary
+
 @Configuration
 class CacheConfig
 constructor(
     private val cacheProperties: CacheProperties,
 ){
 
-    @Profile("prod", "common-cache-prod")
+    @Profile("common-cache-prod")
     @Bean
     fun reactiveRedisClusterConnectionFactory(): ReactiveRedisConnectionFactory {
         val clusterConfiguration = RedisClusterConfiguration()
@@ -45,7 +47,8 @@ constructor(
         return LettuceConnectionFactory(clusterConfiguration, clientConfiguration)
     }
 
-    @Profile("dev", "common-cache-dev")
+    @Primary
+    @Profile("common-cache-dev")
     @Bean
     fun reactiveRedisConnectionFactory(): ReactiveRedisConnectionFactory {
         return LettuceConnectionFactory(

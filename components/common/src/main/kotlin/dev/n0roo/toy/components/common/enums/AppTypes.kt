@@ -18,7 +18,7 @@ object AppTypes {
 
     object Service {
         enum class Resources {
-            SYSTEM
+            SYSTEM, SAMPLES
         }
     }
 
@@ -33,7 +33,7 @@ object AppTypes {
         }
 
         enum class ApprovalResources {
-            EMAIL, APPLE, GOOGLE, SIGNATURE, KV
+            EMAIL, APPLE, GOOGLE, KV
         }
 
         enum class TokenType(value: String) {
@@ -48,6 +48,10 @@ object AppTypes {
             ANONYMOUS,
             USER,
             ADMIN,
+        }
+
+        enum class VerifiedType {
+            MOBILE, EMAIL, MOBILE_SIGNING, EMAIL_SIGNING
         }
     }
 

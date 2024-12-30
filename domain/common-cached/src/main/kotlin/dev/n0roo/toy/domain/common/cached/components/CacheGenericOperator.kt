@@ -1,7 +1,6 @@
 package dev.n0roo.toy.domain.common.cached.components
 
 import dev.n0roo.toy.domain.common.cached.config.codec.JsonCodec
-import dev.n0roo.toy.domain.common.cached.config.codec.TypeReference
 import kotlinx.coroutines.reactor.awaitSingle
 import kotlinx.coroutines.reactor.awaitSingleOrNull
 import org.springframework.data.redis.core.ReactiveRedisOperations
@@ -28,6 +27,12 @@ constructor(
     suspend fun <T: Any> setValue(key: String, source: T): T {
         return reactiveRedisOperations.opsForValue()
             .set(key, jsonCodec.encode(source))
+            .map { source }.awaitSingle()
+    }
+
+    suspend fun <T: Any> setValue(key: String, source: T, ttl: Long): T {
+        return reactiveRedisOperations.opsForValue()
+            .set(key, jsonCodec.encode(source), Duration.ofMillis(ttl))
             .map { source }.awaitSingle()
     }
 

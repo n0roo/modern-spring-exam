@@ -1,4 +1,7 @@
 dependencies {
+    implementation(project(":components:common"))
+    implementation(project(":components:jwt-supporter"))
+    implementation(project(":domain:common-cached"))
     implementation("io.netty:netty-resolver-dns-native-macos:4.1.68.Final:osx-aarch_64")
     implementation("org.springframework.boot:spring-boot-starter-security")
     implementation("org.springframework.cloud:spring-cloud-starter-gateway")

@@ -11,6 +11,7 @@ include(
     "components:aws", // aws components
     "components:mail-sender",   // SMTP email Sender
     "components:excel-handler",   // POI Excel Handler
+    "components:jwt-supporter",   // POI Excel Handler
 
     "domain:common-cached",
     "domain:authenticate-entities", // authenticate 는 사용자의 인증만을 담당하므로, 인증만을 위한 entity 를 제어한다.

@@ -12,7 +12,7 @@ data class AuthenticateAccount(
     @Column(value = "id")
     var id: Long? = null,
     @Column(value = "reference_user_id")
-    var referenceUserId: Long,
+    var referenceUserId: Long = 0,
     @Column(value = "service_resources")
     var serviceResources: AppTypes.Service.Resources = AppTypes.Service.Resources.SYSTEM,
     @Column(value = "status")

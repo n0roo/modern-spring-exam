@@ -20,9 +20,9 @@ class RouterConfig {
                     GET("/{registrationId}", deviceManageHandler::fetchDevices)
                     POST("", deviceManageHandler::registrationDevices)
                 }
-                "/accounts".nest {
-                    POST("")
-                }
+//                "/accounts".nest {
+//                    POST("")
+//                }
             }
         }
     }

@@ -1,0 +1,23 @@
+server:
+  servlet:
+    context-path: /sample
+  port: 8091
+spring:
+  application:
+    name: samples
+  profiles:
+    include:
+#      - auth-entity-dev
+      - sample-entity-dev
+      - common-cache-dev
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 50MB
+      location: ${java.io.tmpdir}
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://127.0.0.1:8761/eureka
