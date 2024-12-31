@@ -9,6 +9,11 @@ object ErrorMsgTypes {
         ;
     }
 
+    enum class Forbidden (val throws: ForbiddenExceptions) {
+        ForbiddenError(ForbiddenExceptions(4030, "Forbidden Error")),
+        ;
+    }
+
     enum class NotFound (val throws: NotFoundExceptions) {
         RegistrationId(NotFoundExceptions(4040, "Not Matched Registration ID")),
         NotMatchedUsers(NotFoundExceptions(4041, "Not Matched Users")),
