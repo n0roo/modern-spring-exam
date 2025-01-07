@@ -22,6 +22,5 @@ class UsersCompositeService (
             email = params.email,
             name = params.name,
         )
-
     }
 }

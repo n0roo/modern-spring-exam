@@ -7,13 +7,13 @@
 - kotlin 1.9.25
 - spring boot 3.4.0
 - spring cloud 2024.0.0
-- junit 5
-- spring Rest Doc
+- junit 5   
+- spring Rest Doc (not yet) 
 - spring JPA
-- spring Jooq
-- spring Vault
-- jooq Gradle CodeGen
-- aws sdk 2.x
+- spring Jooq     (not yet)
+- spring Vault    (not yet)
+- jooq Gradle CodeGen   (not yet)
+- aws sdk 2.x           (not yet)
 - postgreSQL 
 - valkey
 - docker, docker-compose
@@ -77,6 +77,7 @@
 ├── components
 │   ├── common
 │   ├── excel-handler
+│   ├── jwt-supporter                       <-- jwt-supporter
 │   └── mail-sender
 ├── domain
 │   ├── authenticate-entities               <-- authenticate with jpa
@@ -87,6 +88,7 @@
 │── gradle
 │── service
     ├── authenticate-api                          <-- webflux api
+    └── sample-api
 ```
 
 Update Logs
