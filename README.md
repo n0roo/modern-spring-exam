@@ -18,6 +18,7 @@
 - valkey
 - docker, docker-compose
 - liquibase
+- keyclocks             (not yet)
 
 ## Insist This Project
 
@@ -26,7 +27,7 @@
 
 - r2dbc 에 대해서..
   - 아직 Spring 에서 r2dbc 가 성숙하지 않았다고 보임.
-  - 때문에 성숙도가 높은 JPA 와 Jooq 가 메인
+  - 때문에 성숙도가 높은 JPA 와 Jooq 가 메인. (r2dbc 추가) 
   - 20241218 내용 추가. 실제 authenticate-entities 도메인 모듈의 경우 복잡도가 낮고, 성능이 우선되어서, 단순 CRUD 를 체크해본결과 `Webflux + r2dbc` 와 `Web + JPA` 와의 속도가 유의미한 수준의 차이가 있어 변경.
   - webflux 와 web 의 기본적인 속도 차이로 볼수 있지만, r2dbc 와 jdbc의 속도차이로 여길수 있는 구간이라 생각되는 결과.
   - 하지만 여전히 jpa 기반으로 이루어진 성숙도를 버리기에는 여러 문제가 있어보임.
@@ -35,6 +36,7 @@
   - RDBMS 를 다루는 표준은 SQL이고, JPQL은 방언. 때문에 SQL 친화적인 Jooq를 선택.
     - Readability 가 더 좋다고 생각.
     - Build Time 및 물리적 파일의 크기 및 관리 정책은 지불할 수 있음.
+    - r2dbc 지원
 - JPA Relations
   - ONE to ONE , MANY to ONE 외에 사용하지 않음.
   - Table 설계상 정규화된 DB 는 Inner Join 만 허용.
